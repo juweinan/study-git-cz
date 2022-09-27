@@ -48,3 +48,9 @@ npm install husky -D
 > 现在 .git 无法被跟踪以及提交的问题解决了，剩下的就是如何编写 hooks 文件了
 
 ## lint-staged
+
+对 git 暂存区的代码文件进行 bash 命令操作
+
+```sh
+npm install lint-staged -D
+```
