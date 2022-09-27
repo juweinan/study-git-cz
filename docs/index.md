@@ -43,7 +43,7 @@ npm install husky -D
 
 创建 pre-commit 文件，添加代码。。。
 
-这时再提交代码（mac 同样需要执行 chmod 777 .husky/* 来设置文件权限），就会提示 eslint 语法错误提交失败。
+这时再提交代码（mac 同样需要执行 chmod 777 .husky/\* 来设置文件权限），就会提示 eslint 语法错误提交失败。
 
 > 现在 .git 无法被跟踪以及提交的问题解决了，剩下的就是如何编写 hooks 文件了
 
@@ -54,3 +54,36 @@ npm install husky -D
 ```sh
 npm install lint-staged -D
 ```
+
+根目录下创建 `.lintstagedrc` 文件
+
+```js
+{
+  "*.js": [
+    "eslint --fix", // 对于 js 文件使用 eslint 进行代码检查，并对于不合规的代码进行修复
+    "git add" // 修复之后的代码自动执行 git add，这样就不用在重新添加提交了
+  ]
+}
+```
+
+修改 husky 目录下的 pre-commit
+
+```
+. "$(dirname "$0")/_/husky.sh"
+npm run lint
+```
+
+第一句话应该是找到并执行 当前文件夹下的 `\_/husky.sh` 文件，然后运行 npm run lint
+
+在 package.json 文件中添加脚本命令
+
+```json
+"lint": "lint-staged"
+```
+
+这是再执行 commit，就会在控制台中看到，会通过 lint-staged 使用 eslint 进行代码检查并修复，然后修复成功后直接提交正确规范的代码
+
+如今，提交到 git 中的代码规范已经有了，现在也需要规范一下提交信息了
+
+## commitlint
+
