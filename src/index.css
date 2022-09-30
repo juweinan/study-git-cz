@@ -1,0 +1,10 @@
+body {
+  background: pink;
+}
+
+.header {
+  height: 60px;
+  width: 100%;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}

@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "lint-staged",
     "commit": "git-cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "stylelint": "stylelint **/*.scss"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,14 @@
     "eslint-plugin-import": "^2.26.0",
     "git-cz": "^4.9.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3"
+    "lint-staged": "^13.0.3",
+    "stylelint": "^14.13.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-prettier": "^2.0.0"
   },
   "config": {
     "commitizen": {
